@@ -1,12 +1,12 @@
 $(document).ready(function() {
-	getWeather();
-	setInterval(getWeather,600000);
+    getWeather();
+    setInterval(getWeather,600000);
 });
 
 function getWeather(location) {
     $.simpleWeather({
 	//‰Šúİ’è
-	location: 'London, JP',
+	location: 'Kumamoto, JP',
 	unit: 'c',
 
 	//³í‚ÉÀs‚³‚ê‚½‚Ìˆ—
@@ -17,10 +17,11 @@ function getWeather(location) {
 	    if (cur1 == 'Mostly Cloudy')wcode = 1;// “Ü‚è‚Ì‚¿°‚ê
 	    else if (cur1 == 'Cloudy')wcode = 2; // “Ü‚è
 	    else if (cur1 == 'Partly Cloudy')wcode = 3; // °‚êX“Ü‚è
-	    else if (cur1 == 'Clear')wcode = 4; // °‚ê
+	    else if (cur1 == 'Clear')wcode = 4; // ‰õ°
 	    else if(cur1 == 'Mostly Clear')wcode = 5; // ‰õ°
 	    else if(cur1 == 'Rainy')wcode = 6; // ‰J
 	    else if(cur1 == 'Showers')wcode = 7; // ‚É‚í‚©‰J
+	    else if (cur1 == 'Sunny')wcode = 8; // °‚ê
 	    else wcode = -1;   
 
 	    switch(wcode){
@@ -32,7 +33,7 @@ function getWeather(location) {
 		
 	    case 1:
 		cur = '“Ü‚è‚Ì‚¿°‚ê';
-		window.location.href = "#slide-2";
+		window.location.href = "#slide-3";
 		break;
 	    case 2:
 		cur = '“Ü‚è';
@@ -43,7 +44,7 @@ function getWeather(location) {
 		window.location.href = "#slide-3";
 		break;
 	    case 4:
-		cur = '°‚ê';
+		cur = '‰õ°';
 		window.location.href = "#slide-3";
 		break;
 	    case 5:
@@ -58,8 +59,14 @@ function getWeather(location) {
 		cur = 'èÂ';
 		window.location.href = "#slide-2";
 		break;
+	    case 8:
+		cur = '°‚ê';
+		window.location.href = "#slide-3";
+		break;
 	    }
 	    html = '<p>'+cur+'<p>';
+
+	    window.location.href = "#slide-5";
 	    
 	    //‰æ–Ê‚É•\¦
 	    $("#weather").html(html);
