@@ -64,12 +64,38 @@ function getWeather(location) {
 		window.location.href = "#slide-3";
 		break;
 	    }
-	    html = '<p>'+cur+'<p>';
 
-	    window.location.href = "#slide-5";
-	    
+	    html = '<p>'+cur+'<p>';
 	    //‰æ–Ê‚É•\Ž¦
 	    $("#weather").html(html);
 	}
     });
+}
+
+function bgmplayer(weatherid){
+    var audio;
+    switch (weatherid){
+    case 1:
+	audio = new Audio("bgm/cloudy.m4a");
+	break;
+    case 2:
+	audio = new Audio("bgm/cloudy.m4a");
+	break;
+    case 3:
+	audio = new Audio("bgm/cloudy.m4a");
+	break;
+    case 4:
+	audio = new Audio("bgm/clear.m4a");
+	break;
+    case 6:
+	audio = new Audio("bgm/heavyrain.m4a");
+	break;
+    case 7:
+	audio = new Audio("bgm/rain.m4a");
+	break;
+    default:
+	audio = new Audio("bgm/rainjinja.ogg");
+    }
+    audio.loop = true;
+    audio.play();
 }
