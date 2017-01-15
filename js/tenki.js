@@ -6,7 +6,7 @@ $(document).ready(function() {
 function getWeather(location) {
     $.simpleWeather({
 	//‰Šúİ’è
-	location: 'Kumamoto, JP',
+	location: 'Tokyo, JP',
 	unit: 'c',
 
 	//³í‚ÉÀs‚³‚ê‚½‚Ìˆ—
@@ -22,6 +22,8 @@ function getWeather(location) {
 	    else if(cur1 == 'Rainy')wcode = 6; // ‰J
 	    else if(cur1 == 'Showers')wcode = 7; // ‚É‚í‚©‰J
 	    else if (cur1 == 'Sunny')wcode = 8; // °‚ê
+	    else if(cur1 == 'Mostly Sunny')wcode = 9; // ‰õ°
+	    else if(cur1 == 'Breezy')wcode = 10; //‚»‚æ•—
 	    else wcode = -1;   
 
 	    switch(wcode){
@@ -63,8 +65,16 @@ function getWeather(location) {
 		cur = '°‚ê';
 		window.location.href = "#slide-3";
 		break;
+	    case 9:
+		cur = '‰õ°';
+		window.location.href = "#slide-3";
+		break;
+	    case 10:
+		cur = '‚»‚æ•—';
+		window.location.href = "#slide-3";
+		break;
 	    }
-
+	    
 	    html = '<p>'+cur+'<p>';
 	    //‰æ–Ê‚É•\¦
 	    $("#weather").html(html);
